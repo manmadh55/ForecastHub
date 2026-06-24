@@ -1,58 +1,222 @@
-# ForecastHub 🌦️
+<div align="center">
 
-## Project Overview
-ForecastHub is a modern, responsive web application designed as a final-year Computer Science senior capstone project. The objective of the project is to build a user-friendly, real-time weather dashboard that allows users to monitor weather conditions across multiple cities globally. The application leverages modern web technologies to deliver a fluid user experience featuring dynamic UI backgrounds matched to current weather conditions, timezone-aligned local clocks, and comprehensive meteorological data.
+# 🌦️ ForecastHub
 
----
+**Modern Weather Forecasting Application** built with **Next.js, React, Tailwind CSS, and OpenWeatherMap API**. ForecastHub provides real-time weather conditions, 5-day forecasts, air quality monitoring, and an intuitive user experience for tracking weather across multiple locations.
 
-## Objective
-The primary goal of this project was to design and implement a single-page weather dashboard that integrates external REST APIs, manages complex asynchronous state, and presents data through a responsive and modern user interface. Key focus areas included:
-1. **Asynchronous API Integration**: Communicating with multiple third-party endpoints to fetch current weather, air quality indices, and multi-day forecasts.
-2. **Dynamic UI Adjustments**: Utilizing Tailwind CSS and custom React hooks to adapt the visual styling of the site (e.g., backgrounds, colors) to reflect real-time weather conditions and time of day.
-3. **Optimized State Management**: Maintaining a local watch-list of favorite cities and synchronization of temperature units (Celsius/Fahrenheit) across all dashboard panels.
+<br/>
 
----
+![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge\&logo=next.js)
+![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge\&logo=react\&logoColor=black)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38BDF8?style=for-the-badge\&logo=tailwind-css\&logoColor=white)
+![OpenWeatherMap](https://img.shields.io/badge/OpenWeather_API-FFB703?style=for-the-badge)
 
-## Technologies Used
-The project is built on top of a standard MERN-adjacent frontend stack using the following modern web technologies:
-- **Framework**: Next.js 15 (React 19) for server-side rendering, routing, and component architecture.
-- **Styling**: Tailwind CSS & Vanilla CSS for responsive grid layouts, glassmorphic card designs, and transition animations.
-- **Asynchronous HTTP Client**: Axios for clean, promise-based API request handling.
-- **Date & Time Utilities**: Moment Timezone for calculating and displaying localized city times based on timezone offsets.
-- **Icons**: React Icons (FontAwesome library) for consistent vector icon presentation.
-- **Animations**: Framer Motion for smooth slide-ins, fade-ups, and interactive scaling animations.
+<br/>
+
+![Weather Forecast](https://img.shields.io/badge/Real_Time-Weather-success?style=flat-square)
+![Air Quality](https://img.shields.io/badge/AQI-Monitoring-blue?style=flat-square)
+![Responsive UI](https://img.shields.io/badge/Responsive-Design-orange?style=flat-square)
+![Forecast](https://img.shields.io/badge/5_Day-Forecast-purple?style=flat-square)
+
+</div>
 
 ---
 
-## API Integration
-ForecastHub integrates with the **OpenWeatherMap API** to retrieve real-time global weather details:
-1. **Current Weather Endpoint (`/weather`)**: Used to fetch temperature, humidity, wind speed, atmospheric pressure, visibility, and weather condition codes for the primary searched city as well as the favorite cities watchlist.
-2. **5-Day Forecast Endpoint (`/forecast`)**: Retrieves forecast snapshots in 3-hour increments. The application processes this data to show a clean 5-day daily forecast trend.
-3. **Air Quality Endpoint (`/air_pollution`)**: Queries index rankings and specific pollutant metrics (carbon monoxide, nitrogen dioxide, ozone) using latitude and longitude coordinates obtained from the weather queries.
+# 🌍 Project Overview
 
-All API communication is centralized within a modularized utility class (`forecastApi.js`) to decouple data fetching from React component rendering logic.
+ForecastHub is a weather forecasting platform that enables users to monitor current weather conditions, air quality, and upcoming forecasts for cities around the world.
 
----
+The application integrates live weather APIs to provide:
 
-## Features Implemented
-- **Glassmorphic UI**: Sleek glass panels with frosted borders and backdrop filters.
-- **Weather Watchlist**: Interactive sidebar allowing users to add or remove favorite cities. Watchlist data is retrieved dynamically.
-- **Location Search**: Fast city searches utilizing a debounced location-state listener to prevent excessive API rate-limiting.
-- **Dynamic Backgrounds**: Responsive canvas gradients that automatically update based on the current weather condition (e.g., clear, rainy, cloudy, snowy) and time of day (day vs. night mode).
-- **Timezone Sync**: Automatically displays the correct current local date and time of the searched city instead of the client machine's local time.
-- **Temperature Toggle**: Global unit conversions between Metric (Celsius) and Imperial (Fahrenheit) scales.
+* Real-time weather updates
+* 5-day weather forecasts
+* Air Quality Index (AQI) information
+* Multi-city weather tracking
+* Dynamic weather visualizations
+* Responsive user experience
 
 ---
 
-## Challenges Faced
-1. **API Rate Limiting & Debouncing**: Initially, rapid typings or quick transitions in search input caused redundant API requests. To resolve this, a 500ms debounce timer was introduced to ensure weather queries are only executed once search states have settled.
-2. **Timezone Offset Calculations**: OpenWeatherMap returns timezone shifts in seconds from UTC. Aligning these shifts with Moment.js to display the correct weekday and time for foreign cities required custom parsing functions to prevent timezone leaks from the user's browser setting.
-3. **Layout Congruency**: Creating a glassmorphic look that remains fully legible under highly contrasting weather backgrounds required carefully tuned semi-transparent card overlays (`bg-white/10` with custom borders).
+# 🏗️ System Architecture
+
+```text
+User Search
+     │
+     ▼
+Weather API Request
+(OpenWeatherMap)
+     │
+     ▼
+Data Processing
+     │
+     ▼
+Weather Information
+(Current + Forecast)
+     │
+     ▼
+Air Quality Data
+     │
+     ▼
+ForecastHub Dashboard
+```
 
 ---
 
-## Future Improvements
-- **Persistent Storage**: Integrate local storage or a MongoDB database backend to persist the user's city watchlist across page refreshes and sessions.
-- **Autocomplete Search**: Build an autocomplete city input dropdown using the Geocoding API to prevent misspelled search errors.
-- **Historical Data Visualization**: Introduce Chart.js or Recharts to map historical weather trends and temperature changes over the past weeks.
-- **User Accounts**: Implement OAuth/JWT authentication to let different users save personal weather preferences and watchlists.
+# 🛠️ Tech Stack
+
+| Category   | Technology         |
+| ---------- | ------------------ |
+| Frontend   | Next.js            |
+| UI Library | React.js           |
+| Styling    | Tailwind CSS       |
+| API        | OpenWeatherMap API |
+| Language   | JavaScript         |
+| Deployment | Vercel             |
+
+---
+
+# ✨ Features
+
+### 🌤️ Real-Time Weather
+
+* Current temperature
+* Weather conditions
+* Humidity
+* Wind speed
+* Feels-like temperature
+
+### 📅 5-Day Forecast
+
+* Daily weather predictions
+* Temperature trends
+* Forecast summaries
+
+### 🌫️ Air Quality Monitoring
+
+* AQI Information
+* Pollution level insights
+* Health recommendations
+
+### 📱 Responsive Design
+
+* Mobile friendly
+* Tablet support
+* Desktop optimized
+
+### 🌎 Multi-City Tracking
+
+* Search any city
+* Track multiple locations
+* Quick weather comparison
+
+---
+
+# 📁 Repository Structure
+
+```text
+ForecastHub/
+│
+├── src/
+│   ├── app/
+│   ├── components/
+│   ├── services/
+│   └── utils/
+│
+├── public/
+│
+├── package.json
+├── tailwind.config.js
+├── next.config.js
+├── README.md
+└── .gitignore
+```
+
+---
+
+# ⚙️ API Integration
+
+ForecastHub uses the OpenWeatherMap API for:
+
+* Current Weather Data
+* 5-Day Weather Forecasts
+* Air Quality Index Data
+* Geolocation-Based Search
+
+---
+
+# 🚀 How to Run
+
+### Clone Repository
+
+```bash
+git clone https://github.com/manmadh55/ForecastHub.git
+cd ForecastHub
+```
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Configure Environment Variables
+
+Create a `.env.local` file:
+
+```env
+NEXT_PUBLIC_WEATHER_API_KEY=your_api_key
+```
+
+### Start Development Server
+
+```bash
+npm run dev
+```
+
+Open:
+
+```text
+http://localhost:3000
+```
+
+---
+
+# 📷 Application Screenshots
+
+## Home Page
+
+Add screenshot here
+
+## Weather Dashboard
+
+Add screenshot here
+
+## Air Quality Section
+
+Add screenshot here
+
+---
+
+# 🎯 Future Improvements
+
+* Weather Alerts & Notifications
+* Hourly Forecasts
+* Weather Maps
+* User Authentication
+* Favorite Locations
+* Dark / Light Theme Toggle
+* Historical Weather Analytics
+
+---
+
+# 👨‍💻 Author
+
+**Manmadh Gonela**
+
+Computer Science Student | Machine Learning Enthusiast | Full Stack Developer
+
+---
+
+## ⭐ Support
+
+If you found this project useful, consider giving it a ⭐ on GitHub.
