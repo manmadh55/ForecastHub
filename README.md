@@ -181,21 +181,26 @@ http://localhost:3000
 
 ---
 
-# 📷 Application Screenshots
+# 📷 Screenshots
 
 ## Home Page
 
-Add screenshot here
-
-## Weather Dashboard
-
-Add screenshot here
-
-## Air Quality Section
-
-Add screenshot here
+![Home](screenshots/home.png)
 
 ---
+
+## Forecast
+
+![Forecast](screenshots/forecast.png)
+
+---
+
+## Air Quality
+
+![AQI](screenshots/air-quality.png)
+
+---
+
 
 # 🎯 Future Improvements
 
